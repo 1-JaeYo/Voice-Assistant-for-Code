@@ -1,0 +1,317 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "code,debug,my": {
+            "intent": "debug",
+            "domain": "default"
+          },
+          "error,explain,this": {
+            "intent": "explainError",
+            "domain": "default"
+          },
+          "is,not,this,whi,work": {
+            "intent": "debug",
+            "domain": "default"
+          },
+          "do,doe,function,this,what": {
+            "intent": "explainFunction",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "debug": "default",
+          "explainError": "default",
+          "explainFunction": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "debug my code",
+            "intent": "debug"
+          },
+          {
+            "domain": "default",
+            "utterance": "explain this error",
+            "intent": "explainError"
+          },
+          {
+            "domain": "default",
+            "utterance": "why is this not working",
+            "intent": "debug"
+          },
+          {
+            "domain": "default",
+            "utterance": "what does this function do",
+            "intent": "explainFunction"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "debug": 1,
+              "my": 1,
+              "code": 1,
+              "explain": 1,
+              "this": 1,
+              "error": 1,
+              "whi": 1,
+              "is": 1,
+              "not": 1,
+              "work": 1,
+              "what": 1,
+              "doe": 1,
+              "function": 1,
+              "do": 1
+            },
+            "intents": {
+              "debug": 1,
+              "explainError": 1,
+              "explainFunction": 1
+            },
+            "intentFeatures": {
+              "debug": {
+                "debug": 1,
+                "my": 1,
+                "code": 1,
+                "whi": 1,
+                "is": 1,
+                "this": 1,
+                "not": 1,
+                "work": 1
+              },
+              "explainError": {
+                "explain": 1,
+                "this": 1,
+                "error": 1
+              },
+              "explainFunction": {
+                "what": 1,
+                "doe": 1,
+                "this": 1,
+                "function": 1,
+                "do": 1
+              }
+            },
+            "featuresToIntent": {
+              "debug": [
+                "debug"
+              ],
+              "my": [
+                "debug"
+              ],
+              "code": [
+                "debug"
+              ],
+              "whi": [
+                "debug"
+              ],
+              "is": [
+                "debug"
+              ],
+              "this": [
+                "debug",
+                "explainError",
+                "explainFunction"
+              ],
+              "not": [
+                "debug"
+              ],
+              "work": [
+                "debug"
+              ],
+              "explain": [
+                "explainError"
+              ],
+              "error": [
+                "explainError"
+              ],
+              "what": [
+                "explainFunction"
+              ],
+              "doe": [
+                "explainFunction"
+              ],
+              "function": [
+                "explainFunction"
+              ],
+              "do": [
+                "explainFunction"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "debug",
+                "my",
+                "code",
+                "explain",
+                "this",
+                "error",
+                "whi",
+                "is",
+                "not",
+                "work",
+                "what",
+                "doe",
+                "function",
+                "do"
+              ],
+              "intents": [
+                "debug",
+                "explainError",
+                "explainFunction"
+              ],
+              "perceptrons": [
+                [
+                  4.038697242736816,
+                  4.038697242736816,
+                  4.038697242736816,
+                  -1.419155478477478,
+                  0.531258761882782,
+                  -1.419155478477478,
+                  2.863041877746582,
+                  2.863041877746582,
+                  2.863041877746582,
+                  2.863041877746582,
+                  -0.7958198189735413,
+                  -0.7958198189735413,
+                  -0.7958198189735413,
+                  -0.7958198189735413,
+                  2.2830819690933275
+                ],
+                [
+                  -0.40119534730911255,
+                  -0.40119534730911255,
+                  -0.40119534730911255,
+                  4.991627216339111,
+                  2.9253785610198975,
+                  4.991627216339111,
+                  -1.0460901260375977,
+                  -1.0460901260375977,
+                  -1.0460901260375977,
+                  -1.0460901260375977,
+                  -1.0465744733810425,
+                  -1.0465744733810425,
+                  -1.0465744733810425,
+                  -1.0465744733810425,
+                  1.2574118631128728
+                ],
+                [
+                  -0.238233745098114,
+                  -0.238233745098114,
+                  -0.238233745098114,
+                  -1.0029445886611938,
+                  1.4021646976470947,
+                  -1.0029445886611938,
+                  -0.5987738370895386,
+                  -0.5987738370895386,
+                  -0.5987738370895386,
+                  -0.5987738370895386,
+                  3.0817110538482666,
+                  3.0817110538482666,
+                  3.0817110538482666,
+                  3.0817110538482666,
+                  0.567327674386173
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "debug my code"
+      ],
+      [
+        "en",
+        "explain this error"
+      ],
+      [
+        "en",
+        "why is this not working"
+      ],
+      [
+        "en",
+        "what does this function do"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {}
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
